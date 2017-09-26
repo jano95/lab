@@ -1,0 +1,34 @@
+anotaciones: 
+
+pagina: c FAQs
+
+fstat //para obtenerinfo de un archivo
+
+#define HTTP_RES "%s %d %s\r\nContent_Length: %s\r\n\r\n"
+
+char buff[1024];
+
+char *ver = "HTTP/1.1";
+int code = 200;
+char *msg = "OK";
+long int len = 1024000;
+
+snprintf(buff, sizeof buff, HTTP_RES, ver, code, msg, leng);
+
+printf("res: %s", buff);
+
+//O crear una estructura
+
+struct http_field {
+	int code;
+	char mensaje[16];//char *mensaje
+}
+
+//arreglo de estructuras
+struct http_field fields[] = [
+	{200, "OK"},
+	{403, "FORBIDEN"},
+	{404, "NOT FOUND"},
+	{500, "INTERNAL SERVER ERROR"},
+	{-1, NULL}
+]
